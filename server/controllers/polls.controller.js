@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
 
 module.exports={
   create: function(req,res){
+    console.log(req.body.desc);
     let newPoll = new Poll({
       title: req.body.title,
       desc: req.body.desc,
