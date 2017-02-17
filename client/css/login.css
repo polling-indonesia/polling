@@ -1,0 +1,30 @@
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+}
+
+
+main {
+  flex: 1 0 auto;
+}
+
+#login-page{
+  background-color: rgb(55, 197, 217)
+}
+
+.button{
+  background-color: rgb(255, 36, 108)
+}
+
+.button:hover{
+  background-color: rgb(227, 16, 85)
+}
+
+.button:active{
+  background-color: rgb(130, 0, 43)
+}
+
+.card-content{
+  color: rgb(55, 197, 217)
+}
