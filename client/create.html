@@ -25,24 +25,23 @@
               <span class="">
                   <div class="row">
                     <form class="col s12 l12">
-
                         <div class="row">
                           <div class="input-field col s12">
-                            <input id="title" type="text" class="validate">
+                            <input id="input-title" type="text" class="validate">
                             <label for="title">Title</label>
                           </div>
                         </div>
 
                         <div class="row">
                           <div class="input-field col s12">
-                            <textarea id="description" class="materialize-textarea" data-length="120"></textarea>
-                            <label for="description">Description</label>
+                            <textarea id="input-description" class="materialize-textarea" data-length="120"></textarea>
+                            <label for="input-description">Description</label>
                           </div>
                         </div>
 
                         <div class="row">
                           <div class="input-field col s4">
-                            <a href="#" class="btn button">NEXT</a>
+                            <a onclick="createUser()" class="btn button">NEXT</a>
                           </div>
                         </div>
 
@@ -55,6 +54,6 @@
         </div>
       </div>
     </div>
-
+    <script src="js/jquery-create.js"></script>
   </body>
 </html>

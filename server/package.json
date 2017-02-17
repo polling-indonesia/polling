@@ -19,6 +19,10 @@
     "mongoose": "^4.8.3",
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
+    "serve-favicon": "~2.3.0",
+    "dotenv": "^4.0.0",
+    "jsonwebtoken": "^7.3.0",
+    "password-hash": "^1.2.2",
     "serve-favicon": "~2.3.0"
   }
 }

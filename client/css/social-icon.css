@@ -29,7 +29,7 @@ img{max-width:100%;}
 /*end reset*/
 /****-----start-body----****/
 body{
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/washi.png) repeat;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/washi.png) repeat;*/
 	font-family: 'Open Sans', sans-serif;
 
 }
@@ -84,7 +84,7 @@ background: #fff;
 background:#315997;
 }
 .fb a span,.space a span,.linkedin a span,.tumblr a span,.delicious a span,.email a span,.google a span,.twitter a span,.flicker a span,.github a span {
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 9px 5px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 9px 5px;*/
 	height: 45px;
     width: 45px;
 	display: inline-block;
@@ -120,7 +120,7 @@ background:#315997;
 	background: #0e7498;
 }
 .linkedin a span {
-background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 10px -33px;
+/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 10px -33px;*/
 background-size: 260%;
 }
 /*--tumblr------*/
@@ -140,7 +140,7 @@ background-size: 260%;
 	background:#8098ae;
 }
 .tumblr a span {
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 8px -90px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 8px -90px;*/
 }
 /*--space----*/
 .space{
@@ -159,7 +159,7 @@ background-size: 260%;
 	 background:#7e7d7d;
 }
 .space a span {
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -103px 11px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -103px 11px;*/
 }
 /*--google-------*/
 .google lable{
@@ -175,7 +175,7 @@ color: #fff;
 	margin:10px 0 30px 0;
 }
 .google a span{
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -34px -31px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -34px -31px;*/
 background-size: 255%;
 }
 .google:hover{
@@ -195,7 +195,7 @@ background-size: 255%;
 	margin: 30px 0;
 }
 .twitter a span{
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -48px -139px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -48px -139px;*/
 }
 .twitter:hover{
 	background: #29A6D0;
@@ -209,7 +209,7 @@ background-size: 255%;
 	 background:#1e57a8;
 }
 .delicious a span {
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 6px -139px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat 6px -139px;*/
 }
 .delicious lable{
 	border-left: 1px solid rgba(33, 174, 221, 0.38);
@@ -228,7 +228,7 @@ background-size: 255%;
 	background:#376A8A;
 }
 .email a span {
-background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -38px -74px;
+/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -38px -74px;*/
 background-size: 259%;
 }
 .email lable{
@@ -253,7 +253,7 @@ background-size: 259%;
 	margin: 30px 0;
 }
 .flicker a span{
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -40px 9px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -40px 9px;*/
 background-size: 267%;
 }
 .flicker:hover{
@@ -265,7 +265,7 @@ background-size: 267%;
 	margin: 30px 0;
 }
 .github a span{
-	background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -102px -46px;
+	/*background: url(http://preview.w3layouts.com/demos/flat-social-media-icons/web/images/icons.png) no-repeat -102px -46px;*/
 }
 .github:hover{
 	background: #454444;
