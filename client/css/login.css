@@ -13,15 +13,15 @@ main {
   background-color: rgb(55, 197, 217)
 }
 
-.btn-register{
+.button{
   background-color: rgb(255, 36, 108)
 }
 
-.btn-register:hover{
+.button:hover{
   background-color: rgb(227, 16, 85)
 }
 
-.btn-register:active{
+.button:active{
   background-color: rgb(130, 0, 43)
 }
 
