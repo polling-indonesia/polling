@@ -8,6 +8,7 @@ var mongoose = require('mongoose')//import lib mongose
 
 var cors = require('cors')//tambahan agar halaman bisa diakses dari client
 var index = require('./routes/index');
+var poll = require('./routes/polls');
 var app = express();
 mongoose.Promise = global.Promise; // tambahan agar tidak error (node:3341) DeprecationWarning: Mongoose: mpromise
 mongoose.connect('mongodb://localhost/polling')//mongoose to connect database
@@ -22,6 +23,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/polls',poll)
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())//tambahan agar halaman bisa diakses dari client
