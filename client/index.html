@@ -41,79 +41,8 @@
     <div class="section">
 
       <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Poll Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Participate</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Poll Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Participate</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Poll Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Participate</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Poll Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Participate</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Poll Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Participate</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Poll Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Participate</a>
-            </div>
-          </div>
-        </div>
+      <div id="polls" class="row">
+
       </div>
 
     </div>
@@ -149,6 +78,38 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      getPolls();
+    });
+    function goToPoll(id){
+      localStorage.setItem('idPoll', id)
+      window.location.href='http://localhost:8080/poll-page.html'
+    }
+    function getPolls() {
+      $.ajax({
+        url: 'http://localhost:3000/polls',
+        type: 'GET',
+        success: function(results) {
+          console.log(results);
+          results.forEach(function(data){
+            $('#polls').prepend(`
+              <div class="col s12 m4">
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">${data.title}</span>
+                    <p>${data.desc}</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#" onclick="goToPoll('${data._id}')">Participate</a>
+                  </div>
+                </div>
+              </div>
+            `)
+          })
+        }
+      })
+    }
+  </script>
   </body>
 </html>
