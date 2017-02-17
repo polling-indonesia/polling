@@ -24,7 +24,7 @@ module.exports={
     })
   },
   showAll: function(req,res){
-    Poll.find({},function(err,result){
+    Poll.find({open:true},function(err,result){
       if(err){
         res.send(err)
       }
@@ -39,7 +39,7 @@ module.exports={
         res.send(err)
       }
       else{
-        res.json(result)
+        res.json(result.choice)
       }
     })
   },
