@@ -10,7 +10,7 @@ var cors = require('cors')//tambahan agar halaman bisa diakses dari client
 var index = require('./routes/index');
 var app = express();
 mongoose.Promise = global.Promise; // tambahan agar tidak error (node:3341) DeprecationWarning: Mongoose: mpromise
-mongoose.connect('mongodb://localhost/library')//mongoose to connect database library
+mongoose.connect('mongodb://localhost/polling')//mongoose to connect database library
 
 
 // view engine setup
