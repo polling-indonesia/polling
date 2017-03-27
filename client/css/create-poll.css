@@ -1,0 +1,73 @@
+#create-poll-page{
+  background-color: rgb(55, 197, 217)
+}
+
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+}
+
+
+main {
+  flex: 1 0 auto;
+}
+
+.button{
+  background-color: rgb(255, 36, 108)
+}
+
+.button:hover{
+  background-color: rgb(227, 16, 85)
+}
+
+.button:active{
+  background-color: rgb(130, 0, 43)
+}
+
+.card-content{
+  color: rgb(55, 197, 217)
+}
+
+#title{
+  font-size: 50px;
+  margin: 40px;
+}
+
+#description{
+  margin: 40px
+}
+
+.btn-file{
+  border: none;
+  color: white;
+  padding: 0px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.main{
+  padding: 0px 30px;
+}
+
+#add-option{
+  font-size: 40px;
+  margin: 20px;
+}
+
+#options{
+  font-size: 50px;
+  margin: 20px;
+}
+
+.option-show-title{
+  font-size: 30px;
+  margin: 20px;
+}
+
+blockquote{
+  font-size: 10px;
+  margin: 20px;
+}

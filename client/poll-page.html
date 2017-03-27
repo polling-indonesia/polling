@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Polling Indonesia</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/login.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo font-pacifico">Polling Indonesia</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn"><i class="material-icons left">power_settings_new</i>Logout</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a class="waves-effect waves-light btn"><i class="material-icons left">power_settings_new</i>Logout</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <br>
+
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="section">
+        <div class="row" id="chart">
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <table id="table" style="display:none">
+      <thead>
+          <tr id="table-name">
+              <th></th>
+
+
+          </tr>
+      </thead>
+      <tbody>
+          <tr id="table-votes">
+              <th>Votes</th>
+
+          </tr>
+      </tbody>
+  </table>
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div id="options" class="row">
+
+      </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="center container">
+      <a href="https://github.com/kumpulberbagi" class="btn-floating btn waves-effect waves-light teal"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="https://facebook.com/kumpulberbagi" class="btn-floating btn waves-effect waves-light teal"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      <a href="https://twitter.com/kumpulberbagi" class="btn-floating btn waves-effect waves-light teal"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://youtube.com/kumpulberbagi" class="btn-floating btn waves-effect waves-light teal"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-copyright center">
+      <div class="container center">
+        Indonesia Polling 2017
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript">
+
+    $( document ).ready(function() {
+      getPollById();
+    });
+    let id = localStorage.getItem('idPoll')
+    let username = localStorage.getItem('username')
+    function getPollById() {
+      $.ajax({
+        url: `http://localhost:3000/polls/${id}`,
+        type: 'GET',
+        success: function(results) {
+          results.forEach(function(data){
+            $('#options').append(`
+              <div class="col s12 m3">
+                <div class="icon-block">
+                  <h2 class="center light-blue-text"><img src="https://static-03.kitabisa.com/23_174583_1479636936_70206_s.jpg" alt="" class="circle responsive-img" style="width:150px"></h2>
+                  <h5 class="center">${data.name}</h5>
+                  <p class="light">${data.desc}</p>
+                </div>
+                <a class="waves-effect waves-light btn" onclick="vote('${data._id}')"><i class="material-icons center">check</i>VOTE</a>
+              </div>
+            `)
+            $('#table-name').append(`
+              <th>${data.name}</th>
+            `)
+            $('#table-votes').append(`
+              <th id="${data._id}">${data.vote.length}</th>
+            `)
+          loadCharts()
+          })
+        }
+      })
+    }
+
+    function vote(idoption){
+      $.ajax({
+        url: `http://localhost:3000/polls/${id}/vote/${idoption}/${username}`,
+        type: 'PUT',
+        success: function(results) {
+          if(results!='sudah vote jangan double vote'){
+            var a = parseInt($(`#${idoption}`).html())
+            $(`#${idoption}`).html(a+1)
+          }
+          loadCharts()
+        }
+      })
+    }
+
+    function loadCharts() {
+      $(function () {
+        Highcharts.chart('chart', {
+            data: {
+                table: 'table'
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Hasil Polling Sementara'
+            },
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Votes'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        this.point.y + ' ' + this.point.name.toLowerCase();
+                }
+            }
+        });
+      });
+    }
+  </script>
+  <script type="text/javascript">
+
+  </script>
+  </body>
+</html>
